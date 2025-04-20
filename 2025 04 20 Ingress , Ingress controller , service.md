@@ -42,3 +42,9 @@ Service object operates at OSI level 4 while Ingress at level 7.
 	                `name: api-service`
 	                `port:`
 	                  `number: 8080`
+
+What the curl cmd does in the following (glad to find it out):
+	`curl --resolve "chat.example.com:80:127.0.0.1" -i http://chat.example.com/ping`
+--resolve to bypass the DNS on my machine.
+It send the request to 127.0.0.1:80 but including ``Host: chat.example.com``. 
+Ingress rule look up this ``Host`` header. 
